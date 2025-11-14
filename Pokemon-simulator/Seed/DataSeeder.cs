@@ -40,9 +40,9 @@ public static class DataSeeder
 
         return new List<Pokemon>
         {
-            new Charmander("Charmander", 1, fireAttacks),
-            new Squirtle("Squirtle", 2, waterAttacks),
-            new Bulbasaur("Bulbasaur", 5, grassAttacks)
+            new Charmander("Charmander", 5, fireAttacks),
+            new Squirtle("Squirtle", 1, waterAttacks),
+            new Bulbasaur("Bulbasaur", 3, grassAttacks)
 
 
         };

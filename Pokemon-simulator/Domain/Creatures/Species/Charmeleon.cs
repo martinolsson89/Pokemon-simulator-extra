@@ -23,4 +23,10 @@ public class Charmeleon : FirePokemon, IEvolvable
 
         return evolved;
     }
+
+    public override Pokemon RaiseLevel()
+    {
+        base.RaiseLevel();
+        return ReachedThreshold ? Evolve() : this;
+    }
 }

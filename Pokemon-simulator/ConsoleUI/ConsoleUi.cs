@@ -44,7 +44,8 @@ public static class ConsoleUi
                     break;
 
                 case "Level up all":
-                    foreach (var x in team) x.RaiseLevel();
+                    for (int i = 0; i < team.Count; i++)
+                        team[i] = team[i].RaiseLevel();
                     break;
 
                 case "Evolve eligibles":
@@ -95,7 +96,7 @@ public static class ConsoleUi
         {
             var node = root.AddNode($"{p.Name} [grey]({p.Type}, Lv {p.Level})[/]");
             foreach (var a in p.KnownAttacks())
-                node.AddNode($"{a.Name} [grey]({a.BasePower})[/]");
+                node.AddNode(Pokemon.AttackLabel(a));
         }
         AnsiConsole.Write(root);
     }

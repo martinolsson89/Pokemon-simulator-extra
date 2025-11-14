@@ -10,6 +10,10 @@ public abstract class Pokemon
     private int _level;
     protected readonly List<Attack> _attacks;
     public int AttackCount => _attacks.Count;
+    private int _evolveAtLevel = 16;
+    protected bool ReachedThreshold
+        => _evolveAtLevel is int t && Level >= t;
+
 
     public string Name
     {
@@ -75,10 +79,12 @@ public abstract class Pokemon
         selected.Use(Level);
     }
 
-    public void RaiseLevel()
+    public virtual Pokemon RaiseLevel()
     {
         Level += 1;
         AnsiConsole.MarkupLine($"[green]{Name} leveled up to {Level}![/]");
+
+        return this;
     }
 
     public IEnumerable<Attack> KnownAttacks() => _attacks.ToArray();
@@ -88,7 +94,7 @@ public abstract class Pokemon
         AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Grr Grr!");
     }
 
-    private static string AttackLabel(Attack a)
+    public static string AttackLabel(Attack a)
     {
         var tag = a is LegendaryAttack ? " [yellow](Legendary)[/]" : " [deepskyblue1](Normal)[/]";
         return $"{Markup.Escape(a.Name)}{tag} [grey]({a.Type}, {a.BasePower} base)[/]";

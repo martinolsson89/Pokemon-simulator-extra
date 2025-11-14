@@ -32,4 +32,10 @@ public class Charmander : FirePokemon, IEvolvable
     {
         AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Char Char!");
     }
+
+    public override Pokemon RaiseLevel()
+    {
+        base.RaiseLevel();
+        return ReachedThreshold ? Evolve() : this;
+    }
 }
