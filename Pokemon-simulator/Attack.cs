@@ -1,4 +1,6 @@
-﻿namespace Pokemon_simulator;
+﻿using Spectre.Console;
+
+namespace Pokemon_simulator;
 
 public class Attack
 {
@@ -37,8 +39,10 @@ public class Attack
     }
 
 
-    public void Use(int level)
+    public virtual void Use(int level)
     {
-        Console.WriteLine($"{Name} hit with a total power of {BasePower + level}\n");
+        AnsiConsole.MarkupLine($"[grey]{Name} used[/] hit with a total power of [bold]{BasePower + level}[/]\n");
     }
 }
+
+

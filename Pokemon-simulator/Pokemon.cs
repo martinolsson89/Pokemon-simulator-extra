@@ -6,7 +6,7 @@ public abstract class Pokemon
 {
     private string _name = string.Empty;
     private int _level;
-    private readonly List<Attack> _attacks;
+    protected readonly List<Attack> _attacks;
     public int AttackCount => _attacks.Count;
 
     public string Name
@@ -64,8 +64,10 @@ public abstract class Pokemon
             .Title($"[bold yellow]Choose {Name}'s attack[/]")
             .PageSize(10)
             .MoreChoicesText("[grey](Move up/down to see more)[/]")
-            .UseConverter(a => $"{a.Name} [grey]({a.Type}, {a.BasePower} base)[/]")
-            .AddChoices(_attacks));
+            .UseConverter(AttackLabel)
+            .AddChoices(_attacks
+                .OrderByDescending(a => a is LegendaryAttack)
+                .ThenByDescending(a => a.BasePower)));
 
         AnsiConsole.MarkupLine($"\n[grey]{Name} used[/] [bold]{selected.Name}[/]!");
         selected.Use(Level);
@@ -78,6 +80,12 @@ public abstract class Pokemon
     }
 
     public IEnumerable<Attack> KnownAttacks() => _attacks.ToArray();
+
+    private static string AttackLabel(Attack a)
+    {
+        var tag = a is LegendaryAttack ? " [yellow](Legendary)[/]" : " [deepskyblue1](Normal)[/]";
+        return $"{Markup.Escape(a.Name)}{tag} [grey]({a.Type}, {a.BasePower} base)[/]";
+    }
 
 }
 

@@ -1,4 +1,6 @@
-﻿namespace Pokemon_simulator;
+﻿using Spectre.Console;
+
+namespace Pokemon_simulator;
 
 public abstract class FirePokemon : Pokemon
 {
