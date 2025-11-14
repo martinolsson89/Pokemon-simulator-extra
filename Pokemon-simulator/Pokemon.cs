@@ -81,6 +81,11 @@ public abstract class Pokemon
 
     public IEnumerable<Attack> KnownAttacks() => _attacks.ToArray();
 
+    public virtual void Speak()
+    {
+        AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Grr Grr!");
+    }
+
     private static string AttackLabel(Attack a)
     {
         var tag = a is LegendaryAttack ? " [yellow](Legendary)[/]" : " [deepskyblue1](Normal)[/]";

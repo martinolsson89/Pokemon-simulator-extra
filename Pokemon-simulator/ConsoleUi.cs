@@ -12,7 +12,7 @@ public static class ConsoleUi
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("[bold]Choose an action[/]")
-                    .AddChoices("Show team", "Choose & attack", "Level up all", "Evolve eligibles", "Charts", "Exit"));
+                    .AddChoices("Show team", "Choose & attack", "Speak", "Level up all", "Evolve eligibles", "Charts", "Exit"));
 
             switch (choice)
             {
@@ -29,6 +29,16 @@ public static class ConsoleUi
 
                     AnsiConsole.Write(new Rule($"[blue]{p.Name}[/]").RuleStyle(Style.Parse("blue")));
                     p.Attack();
+                    break;
+                case "Speak":
+                       p = AnsiConsole.Prompt(
+                       new SelectionPrompt<Pokemon>()
+                           .Title("[bold]Pick your Pokemon[/]")
+                           .UseConverter(x => $"{x.Name} [grey]({x.Type}, Lv {x.Level})[/]")
+                           .AddChoices(team));
+
+                    AnsiConsole.Write(new Rule($"[blue]{p.Name}[/]").RuleStyle(Style.Parse("blue")));
+                    p.Speak();
                     break;
 
                 case "Level up all":

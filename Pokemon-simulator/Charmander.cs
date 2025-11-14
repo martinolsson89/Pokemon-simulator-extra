@@ -28,4 +28,9 @@ public class Charmander : FirePokemon, IEvolvable
 
         AnsiConsole.MarkupLine($"{old} is evolving... Now it is a [bold]{Name}[/] and its level is [bold]{Level}[/]");
     }
+
+    public override void Speak()
+    {
+        AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Char Char!");
+    }
 }
