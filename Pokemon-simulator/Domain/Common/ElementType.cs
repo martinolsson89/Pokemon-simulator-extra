@@ -1,4 +1,4 @@
-﻿namespace Pokemon_simulator;
+﻿namespace Pokemon_simulator.Domain.Common;
 
 public enum ElementType
 {

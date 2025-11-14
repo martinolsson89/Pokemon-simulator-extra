@@ -1,7 +1,9 @@
-﻿
+﻿using Pokemon_simulator.Domain.Common;
+using Pokemon_simulator.Domain.Creatures.Base;
+using Pokemon_simulator.Domain.Interfaces;
 using Spectre.Console;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.ConsoleUI;
 
 public static class ConsoleUi
 {
@@ -46,12 +48,15 @@ public static class ConsoleUi
                     break;
 
                 case "Evolve eligibles":
-                    foreach (var x in team)
+                    for (int i = 0; i < team.Count; i++)
                     {
+                        var x = team[i];
+
                         if (x is IEvolvable e)
                         {
                             AnsiConsole.MarkupLine($"[grey]Trying to evolve {x.Name}...[/]");
-                            e.Evolve();
+                            var evolved = e.Evolve();
+                            team[i] = evolved;
                         }
                     }
                     break;

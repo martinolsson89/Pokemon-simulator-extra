@@ -1,6 +1,8 @@
+using Pokemon_simulator.Domain.Attacks;
+using Pokemon_simulator.Domain.Creatures.Base;
 using Spectre.Console;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.Domain.Creatures.Species;
 
 public class Squirtle : WaterPokemon
 {

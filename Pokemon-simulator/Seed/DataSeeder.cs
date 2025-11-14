@@ -1,6 +1,9 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Pokemon_simulator.Domain.Attacks;
+using Pokemon_simulator.Domain.Common;
+using Pokemon_simulator.Domain.Creatures.Base;
+using Pokemon_simulator.Domain.Creatures.Species;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.Seed;
 
 public static class DataSeeder
 {

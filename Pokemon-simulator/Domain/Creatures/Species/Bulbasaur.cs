@@ -1,6 +1,8 @@
+using Pokemon_simulator.Domain.Attacks;
+using Pokemon_simulator.Domain.Creatures.Base;
 using Spectre.Console;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.Domain.Creatures.Species;
 
 public class Bulbasaur : GrassPokemon
 {
@@ -17,6 +19,6 @@ public class Bulbasaur : GrassPokemon
 
     public override void Speak()
     {
-        AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Bubla bulba!");
+        AnsiConsole.MarkupLine($"[gray]{Name} says:[/] Bulba bulba!");
     }
 }

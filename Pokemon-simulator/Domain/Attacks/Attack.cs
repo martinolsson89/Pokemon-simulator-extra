@@ -1,6 +1,7 @@
-﻿using Spectre.Console;
+﻿using Pokemon_simulator.Domain.Common;
+using Spectre.Console;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.Domain.Attacks;
 
 public class Attack
 {

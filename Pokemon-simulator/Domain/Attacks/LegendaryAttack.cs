@@ -1,6 +1,6 @@
 ﻿using Spectre.Console;
 
-namespace Pokemon_simulator;
+namespace Pokemon_simulator.Domain.Attacks;
 
 public class LegendaryAttack : Attack
 {
